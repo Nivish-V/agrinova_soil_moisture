@@ -114,7 +114,7 @@ if st.button(("Predict Moisture")):
     elif moisture > HIGH_THRESHOLD: rec_text="⚠️ Over-Irrigation Detected"
     else: rec_text="✅ Optimal Irrigation Level"
 
-    st.markdown(f'<div class="card"><h2>{("Irrigation Recommendation")}</h2><h3>{t(rec_text)}</h3></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="card"><h2>{("Irrigation Recommendation")}</h2><h3>{(rec_text)}</h3></div>', unsafe_allow_html=True)
 
     # ===================== DASHBOARD TABS =====================
     tabs = st.tabs([("Soil Moisture Gauge"), t("Irrigation Graphs")])
@@ -196,6 +196,7 @@ if st.button(("Predict Moisture")):
 
     st.markdown("### ✅ Smart irrigation analysis completed successfully")
     st.markdown("**Made with ❤️ by Team Agrinova**")
+
 
 
 
