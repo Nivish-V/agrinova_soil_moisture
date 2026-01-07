@@ -51,7 +51,7 @@ st.markdown(
 )
 
 # ===================== LOAD DATA =====================
-filename = r"C:\Users\nivis\Desktop\Agrinova\Soil_moisture_Dataset.csv"
+filename = r"Soil_moisture.csv"
 df = pd.read_csv(filename)
 df.columns = df.columns.str.strip().str.lower()
 for col in df.columns:
@@ -196,6 +196,7 @@ if st.button(("Predict Moisture")):
 
     st.markdown("### ✅ Smart irrigation analysis completed successfully")
     st.markdown("**Made with ❤️ by Team Agrinova**")
+
 
 
 
