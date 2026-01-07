@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error
-from googletrans import Translator
+#from googletrans import Translator
 import base64
 
 # ===================== BACKGROUND =====================
@@ -78,34 +78,34 @@ st.sidebar.metric("R² Score", round(r2,3))
 st.sidebar.metric("RMSE", round(rmse,3))
 
 # ===================== LANGUAGE =====================
-translator = Translator()
-lang_choice = st.sidebar.selectbox("🌍 Choose Language", ("English","తెలుగు","ಕನ್ನಡ","हिन्दी","اردو"))
-lang_map = {"English":"en","తెలుగు":"te","ಕನ್ನಡ":"kn","हिन्दी":"hi","اردو":"ur"}
-lang_code = lang_map[lang_choice]
-def t(text):
-    if lang_code=="en": return text
-    return translator.translate(text, dest=lang_code).text
+#translator = Translator()
+#lang_choice = st.sidebar.selectbox("🌍 Choose Language", ("English","తెలుగు","ಕನ್ನಡ","हिन्दी","اردو"))
+#lang_map = {"English":"en","తెలుగు":"te","ಕನ್ನಡ":"kn","हिन्दी":"hi","اردو":"ur"}
+#lang_code = lang_map[lang_choice]
+#def t(text):
+   # if lang_code=="en": return text
+   # return translator.translate(text, dest=lang_code).text
 
 # ===================== INPUT FIELDS =====================
 st.markdown("## 📝 Input Soil Parameters")
 input_cols = st.columns(len(X.columns))
 inputs = []
 for i,col in enumerate(X.columns):
-    val = input_cols[i].text_input(label=t(col), placeholder=t(f"Enter {col}"))
+    val = input_cols[i].text_input(label=(col), placeholder=(f"Enter {col}"))
     inputs.append(val)
 
 # ===================== PREDICTION & DASHBOARD =====================
-if st.button(t("Predict Moisture")):
+if st.button(("Predict Moisture")):
     try:
         input_array = np.array([float(i) for i in inputs]).reshape(1,-1)
     except ValueError:
-        st.error(t("Please enter valid numeric values"))
+        st.error(("Please enter valid numeric values"))
         st.stop()
 
     moisture = model.predict(input_array)[0]
 
     # ===================== CARD: Prediction =====================
-    st.markdown(f'<div class="card"><h2>{t("Predicted Soil Moisture")}</h2><h1>{round(moisture,2)}%</h1></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="card"><h2>{("Predicted Soil Moisture")}</h2><h1>{round(moisture,2)}%</h1></div>', unsafe_allow_html=True)
 
     # ===================== IRRIGATION DECISION =====================
     LOW_THRESHOLD = 30
@@ -114,10 +114,10 @@ if st.button(t("Predict Moisture")):
     elif moisture > HIGH_THRESHOLD: rec_text="⚠️ Over-Irrigation Detected"
     else: rec_text="✅ Optimal Irrigation Level"
 
-    st.markdown(f'<div class="card"><h2>{t("Irrigation Recommendation")}</h2><h3>{t(rec_text)}</h3></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="card"><h2>{("Irrigation Recommendation")}</h2><h3>{t(rec_text)}</h3></div>', unsafe_allow_html=True)
 
     # ===================== DASHBOARD TABS =====================
-    tabs = st.tabs([t("Soil Moisture Gauge"), t("Irrigation Graphs")])
+    tabs = st.tabs([("Soil Moisture Gauge"), t("Irrigation Graphs")])
     
     # ---------------- Soil Moisture Gauge Tab ----------------
     with tabs[0]:
@@ -196,4 +196,5 @@ if st.button(t("Predict Moisture")):
 
     st.markdown("### ✅ Smart irrigation analysis completed successfully")
     st.markdown("**Made with ❤️ by Team Agrinova**")
+
 
