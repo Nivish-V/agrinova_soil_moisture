@@ -133,7 +133,7 @@ if st.button(t("Predict Moisture")):
         # 5️⃣ Irrigation Requirement & 6️⃣ Moisture Deficit vs Volume side by side
         col1,col2 = st.columns(2)
         with col1:
-            st.markdown("### 5️⃣ Irrigation Requirement")
+            st.markdown("### 1️⃣ Irrigation Requirement")
             levels = ["Low","Medium","High"]
             water_needed = [deficit*0.5, deficit*1.0, deficit*1.5]
             fig,ax = plt.subplots()
@@ -143,7 +143,7 @@ if st.button(t("Predict Moisture")):
             ax.grid(True, linestyle='--', alpha=0.5)
             st.pyplot(fig)
         with col2:
-            st.markdown("### 6️⃣ Moisture Deficit vs Irrigation Volume")
+            st.markdown("### 2️⃣ Moisture Deficit vs Irrigation Volume")
             deficit_range = np.linspace(0,60,10)
             irrigation_volume = deficit_range*1.2
             fig,ax = plt.subplots()
@@ -156,7 +156,7 @@ if st.button(t("Predict Moisture")):
         # 7️⃣ Irrigation Frequency & 8️⃣ Water Stress side by side
         col1,col2 = st.columns(2)
         with col1:
-            st.markdown("### 7️⃣ Irrigation Frequency Recommendation")
+            st.markdown("### 3️⃣ Irrigation Frequency Recommendation")
             freq = ["Daily","Alternate Days","Weekly"]
             suitability = [90 if moisture<30 else 40, 70 if 30<=moisture<=60 else 50, 80 if moisture>60 else 30]
             fig,ax = plt.subplots()
@@ -165,7 +165,7 @@ if st.button(t("Predict Moisture")):
             ax.grid(True, linestyle='--', alpha=0.5)
             st.pyplot(fig)
         with col2:
-            st.markdown("### 8️⃣ Water Stress Risk Indicator")
+            st.markdown("### 4️⃣ Water Stress Risk Indicator")
             if moisture<30: stress=90
             elif moisture>60: stress=40
             else: stress=10
@@ -175,7 +175,7 @@ if st.button(t("Predict Moisture")):
         # 9️⃣ Irrigation Efficiency & 🔟 Moisture Recovery side by side
         col1,col2 = st.columns(2)
         with col1:
-            st.markdown("### 9️⃣ Irrigation Efficiency Comparison")
+            st.markdown("### 5️⃣ Irrigation Efficiency Comparison")
             methods=["Traditional","Smart Irrigation"]
             water_use=[100,65]
             fig,ax = plt.subplots()
@@ -184,7 +184,7 @@ if st.button(t("Predict Moisture")):
             ax.grid(True, linestyle='--', alpha=0.5)
             st.pyplot(fig)
         with col2:
-            st.markdown("### 🔟 Moisture Recovery After Irrigation")
+            st.markdown("### 6️⃣ Moisture Recovery After Irrigation")
             time_points = list(range(6))
             recovery = moisture + np.array([0,5,10,12,13,14])
             fig,ax = plt.subplots()
@@ -196,3 +196,4 @@ if st.button(t("Predict Moisture")):
 
     st.markdown("### ✅ Smart irrigation analysis completed successfully")
     st.markdown("**Made with ❤️ by Team Agrinova**")
+
