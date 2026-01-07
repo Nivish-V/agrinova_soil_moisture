@@ -25,7 +25,7 @@ def set_bg_image(image_path):
         """,
         unsafe_allow_html=True
     )
-set_bg_image(r"C:\Users\nivis\Downloads\Agrinova background.png")
+set_bg_image(r"agriculture.webp")
 
 # ===================== CSS STYLING =====================
 st.markdown("""
@@ -196,5 +196,6 @@ if st.button(("Predict Moisture")):
 
     st.markdown("### ✅ Smart irrigation analysis completed successfully")
     st.markdown("**Made with ❤️ by Team Agrinova**")
+
 
 
