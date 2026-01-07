@@ -1,0 +1,6 @@
+streamlit
+numpy
+pandas
+matplotlib
+scikit-learn
+googletrans==4.0.0-rc1
