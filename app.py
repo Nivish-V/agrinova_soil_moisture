@@ -200,4 +200,5 @@ if st.button(t("Predict Moisture", lang_code)):
             st.pyplot(fig)
 
     st.markdown(f"### {t('✅ Smart irrigation analysis completed', lang_code)}")
-    st.markdown("**Made with ❤️ by Team Agrinova**")
+    st.markdown(t("**Made with ❤️ by Team Agrinova**"))
+
