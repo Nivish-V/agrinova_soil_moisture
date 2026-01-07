@@ -117,7 +117,7 @@ if st.button(("Predict Moisture")):
     st.markdown(f'<div class="card"><h2>{("Irrigation Recommendation")}</h2><h3>{(rec_text)}</h3></div>', unsafe_allow_html=True)
 
     # ===================== DASHBOARD TABS =====================
-    tabs = st.tabs([("Soil Moisture Gauge"), t("Irrigation Graphs")])
+    tabs = st.tabs([("Soil Moisture Gauge"), ("Irrigation Graphs")])
     
     # ---------------- Soil Moisture Gauge Tab ----------------
     with tabs[0]:
@@ -196,6 +196,7 @@ if st.button(("Predict Moisture")):
 
     st.markdown("### ✅ Smart irrigation analysis completed successfully")
     st.markdown("**Made with ❤️ by Team Agrinova**")
+
 
 
 
